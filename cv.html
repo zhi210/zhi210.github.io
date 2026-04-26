@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV — 胡耀芝</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== 顶部导航栏 ===== -->
+  <div id="header" class="header-bar">
+    <div class="header-inner">
+      <div class="header-wordmark">
+        <a href="index.html" class="wordmark-link">Yaozhi Hu @ ZJU</a>
+      </div>
+      <div class="header-links">
+        <input class="side-menu" type="checkbox" id="side-menu">
+        <div class="hamb" id="hamb-toggle">
+          <span class="hamb-line"></span>
+        </div>
+        <div class="nav-wrapper">
+          <div class="nav-menu">
+            <a href="index.html" class="nav-item">About</a>
+            <a href="http://www.som.zju.edu.cn/" class="nav-item nav-lab">SOM, ZJU</a>
+            <a href="cv.html" class="nav-item nav-selected">CV</a>
+            <a href="cv.html#practice" class="nav-item">实践活动</a>
+            <a href="cv.html#skills" class="nav-item">技能掌握</a>
+            <a href="cv.html#books" class="nav-item">阅读书目</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CV 主体 ===== -->
+  <div class="page-content cv-content">
+
+    <!-- CV 标题行 + 下载按钮 -->
+    <div class="cv-header-row">
+      <h1 class="cv-title">胡耀芝 — 个人简历</h1>
+      <!-- ⚠️ 请将你的简历PDF命名为 resume.pdf 放在与 cv.html 同目录，按钮即可正常下载 -->
+      <a href="resume.pdf" class="cv-download-btn" download="胡耀芝_简历.pdf">
+        <span class="dl-icon">↓</span> Download PDF
+      </a>
+    </div>
+
+    <!-- 教育背景 + 联系方式（左右并排） -->
+    <div class="cv-top-grid">
+
+      <!-- 左：教育背景 -->
+      <div class="cv-edu">
+        <h2 class="cv-section-title">教育背景</h2>
+        <p class="cv-edu-period">
+          <span class="highlight">2023.09 — 至今</span>
+          &nbsp;&nbsp;浙江大学（管理学院），信息管理与信息系统本科
+        </p>
+        <p class="cv-body-text">主修课程：商业数据分析的Python基础（4.5）、Python程序设计（4.5）、非结构化数据分析与应用（4.8）、商务数据挖掘（4.5）、数据库技术（4.5）、管理统计（5.0）、数据分析与可视化（5.0）、应用运筹学（4.8）、运作管理（4.5）、微观经济学（4.8）、宏观经济学（4.5）、微积分（H）（4.2）、线性代数（4.2）、概率论与数理统计（4.5）、数据结构（4.5）</p>
+        <p class="cv-body-text">绩点：<span class="highlight">4.46 / 5.00</span></p>
+        <p class="cv-body-text">累计排名：<span class="highlight">20 / 54</span></p>
+        <p class="cv-body-text">奖学金：校设二等奖学金</p>
+      </div>
+
+      <!-- 右：联系方式 -->
+      <div class="cv-contact">
+        <h2 class="cv-section-title">联系方式</h2>
+        <p class="cv-body-text">
+          <span class="cv-label">邮箱：</span>
+          <a href="mailto:3230105450@zju.edu.cn" class="about-link">3230105450@zju.edu.cn</a>
+        </p>
+        <p class="cv-body-text"><span class="cv-label">电话：</span>19857197275</p>
+        <p class="cv-body-text">
+          <span class="cv-label">院系：</span>
+          <a href="http://www.som.zju.edu.cn/" class="about-link" target="_blank" rel="noopener noreferrer">浙江大学管理学院</a>
+        </p>
+        <p class="cv-body-text"><span class="cv-label">专业：</span>信息管理与信息系统</p>
+      </div>
+
+    </div>
+
+    <!-- 自我评价 -->
+    <div class="cv-section">
+      <h2 class="cv-section-title">自我评价</h2>
+      <p class="cv-body-text">基础扎实，擅长把学到的内容转化为实践。具备泰坦尼克号生存预测与健身房数据库构建等项目经验，注重数据驱动和复盘优化。</p>
+    </div>
+
+    <!-- 项目经历（三个方框对应的详细内容） -->
+    <div class="cv-section" id="projects">
+      <h2 class="cv-section-title">项目经历</h2>
+
+      <!-- 项目1 -->
+      <div class="cv-project" id="proj-1">
+        <p class="cv-project-title"><span class="highlight">健身房数据库构建</span></p>
+        <p class="cv-body-text">在构建健身房数据库项目中，项目任务拆分为需求分析、概念设计、逻辑结构设计和数据库系统实现。过程参考真实的健身房运作，以 SQL Server 为平台，流程图、ER图、数据字典为工具。我负责 ER 图设计、数据字典的构建及部分代码的编写。构建了能体现会员、课程、教练、器材与各种工作人员的关系并实现信息操作的数据库。</p>
+      </div>
+
+      <!-- 项目2 -->
+      <div class="cv-project" id="proj-2">
+        <p class="cv-project-title"><span class="highlight">泰坦尼克号乘客生存预测</span></p>
+        <p class="cv-body-text">在泰坦尼克号乘客生存预测项目中，面对利用机器学习分析乘客生存情况的任务，我独自编写函数读取、清洗数据并整理为 Passenger 类列表；实现 KNN 和逻辑回归模型及相关验证函数，计算指标评估性能；编写函数绘制 ROC 曲线辅助调优。最终成功提升预测准确性，积累了从数据处理到模型优化全流程的独立项目经验。</p>
+      </div>
+
+      <!-- 项目3 -->
+      <div class="cv-project" id="proj-3">
+        <p class="cv-project-title"><span class="highlight">商标目标检测</span></p>
+        <p class="cv-body-text">在商标的目标检测项目中，为了找到效果最好的检测方法，我首先使用了 YOLO 的不同模型对比了效果，调用通义千问大模型批量检测，观察到大模型的分类效果较好，但检测结果低于模型，抽样发现在评估中大模型结果与人工标注习惯有偏差，因此 MAP 值较低。</p>
+      </div>
+    </div>
+
+    <!-- 实践活动 -->
+    <div class="cv-section" id="practice">
+      <h2 class="cv-section-title">实践活动</h2>
+      <ul class="cv-list">
+        <li class="cv-list-item">2024—2025 寒假，参加新加坡科技设计大学交流活动，学习设计思维，机器人比赛获二、三等奖。</li>
+        <li class="cv-list-item">参与竺可桢学院导师制科研训练，完成动态情景可解释性文章，管理学院论文比赛第二名。</li>
+        <li class="cv-list-item">作为立项人参与 SRTP 国创科研计划，构建社交媒体多模态数据流行度预测模型与辅助创作，完成了辅助创作平台前后端的搭建，使用 agent 完成部分功能，接入了预测模型。</li>
+      </ul>
+    </div>
+
+    <!-- 技能掌握 -->
+    <div class="cv-section" id="skills">
+      <h2 class="cv-section-title">技能掌握</h2>
+      <ul class="cv-list">
+        <li class="cv-list-item"><span class="cv-label">编程：</span>Python、SQL、C、HTML，熟悉 R。</li>
+        <li class="cv-list-item"><span class="cv-label">数据库：</span>SQL Server、MongoDB、Redis。</li>
+        <li class="cv-list-item"><span class="cv-label">工具：</span>Excel、SPSS、Canva、剪映、VSCode、Gitee。</li>
+      </ul>
+    </div>
+
+    <!-- 阅读书目 -->
+    <div class="cv-section books-section" id="books">
+      <h2 class="cv-section-title">阅读书目</h2>
+      <ol class="book-list">
+
+        <li class="book-item">
+          <img class="book-cover" src="images/books/data_visualization.png" alt="数据之美">
+          <div class="book-details">
+            <p class="book-title"><span class="highlight">《数据之美》</span></p>
+            <p class="book-author">作者：Nathan Yau</p>
+            <p class="book-date">读书时间：2023年10月</p>
+            <a class="book-link" href="https://item.jd.com/10055719306770.html" target="_blank" rel="noopener noreferrer">京东购买链接</a>
+          </div>
+        </li>
+
+        <li class="book-item">
+          <img class="book-cover" src="images/books/signal_noise.png" alt="信号与噪声">
+          <div class="book-details">
+            <p class="book-title"><span class="highlight">《信号与噪声》</span></p>
+            <p class="book-author">作者：Nate Silver</p>
+            <p class="book-date">读书时间：2023年12月</p>
+            <a class="book-link" href="https://item.jd.com/10211061678488.html" target="_blank" rel="noopener noreferrer">京东购买链接</a>
+          </div>
+        </li>
+
+        <li class="book-item">
+          <img class="book-cover" src="images/books/algorithms.png" alt="算法导论">
+          <div class="book-details">
+            <p class="book-title"><span class="highlight">《算法导论》</span></p>
+            <p class="book-author">作者：Thomas H. Cormen</p>
+            <p class="book-date">读书时间：2024年01月</p>
+            <a class="book-link" href="https://item.jd.com/10110236527917.html" target="_blank" rel="noopener noreferrer">京东购买链接</a>
+          </div>
+        </li>
+
+        <li class="book-item">
+          <img class="book-cover" src="images/books/python_datascience.png" alt="Python数据科学手册">
+          <div class="book-details">
+            <p class="book-title"><span class="highlight">《Python数据科学手册》</span></p>
+            <p class="book-author">作者：Jake VanderPlas</p>
+            <p class="book-date">读书时间：2024年02月</p>
+            <a class="book-link" href="https://item.jd.com/10107139690995.html" target="_blank" rel="noopener noreferrer">京东购买链接</a>
+          </div>
+        </li>
+
+        <li class="book-item">
+          <img class="book-cover" src="images/books/business_model_generation.png" alt="商业模式新生代">
+          <div class="book-details">
+            <p class="book-title"><span class="highlight">《商业模式新生代》</span></p>
+            <p class="book-author">作者：Alexander Osterwalder</p>
+            <p class="book-date">读书时间：2024年03月</p>
+            <a class="book-link" href="https://item.jd.com/10197573762569.html" target="_blank" rel="noopener noreferrer">京东购买链接</a>
+          </div>
+        </li>
+
+        <li class="book-item">
+          <img class="book-cover" src="images/books/econometrics.png" alt="计量经济学">
+          <div class="book-details">
+            <p class="book-title"><span class="highlight">《计量经济学》</span></p>
+            <p class="book-author">作者：李子奈 潘文卿</p>
+            <p class="book-date">读书时间：2024年04月</p>
+            <a class="book-link" href="https://item.jd.com/14549901.html" target="_blank" rel="noopener noreferrer">京东购买链接</a>
+          </div>
+        </li>
+
+        <li class="book-item">
+          <img class="book-cover" src="images/books/product_roadmap.png" alt="产品设计蓝图">
+          <div class="book-details">
+            <p class="book-title"><span class="highlight">《产品设计蓝图》</span></p>
+            <p class="book-author">作者：C. Todd Lombardo</p>
+            <p class="book-date">读书时间：2024年05月</p>
+            <a class="book-link" href="https://item.jd.com/10180631776788.html" target="_blank" rel="noopener noreferrer">京东购买链接</a>
+          </div>
+        </li>
+
+        <li class="book-item">
+          <img class="book-cover" src="images/books/lean_startup.png" alt="精益创业">
+          <div class="book-details">
+            <p class="book-title"><span class="highlight">《精益创业》</span></p>
+            <p class="book-author">作者：Eric Ries</p>
+            <p class="book-date">读书时间：2024年06月</p>
+            <a class="book-link" href="https://item.jd.com/10050047899201.html" target="_blank" rel="noopener noreferrer">京东购买链接</a>
+          </div>
+        </li>
+
+        <li class="book-item">
+          <img class="book-cover" src="images/books/deep_learning.png" alt="深度学习">
+          <div class="book-details">
+            <p class="book-title"><span class="highlight">《深度学习》</span></p>
+            <p class="book-author">作者：Ian Goodfellow</p>
+            <p class="book-date">读书时间：2024年07月</p>
+            <a class="book-link" href="https://item.jd.com/10135262787752.html" target="_blank" rel="noopener noreferrer">京东购买链接</a>
+          </div>
+        </li>
+
+        <li class="book-item">
+          <img class="book-cover" src="images/books/stillness.png" alt="宁静的力量">
+          <div class="book-details">
+            <p class="book-title"><span class="highlight">《宁静的力量》</span></p>
+            <p class="book-author">作者：Ryan Holiday</p>
+            <p class="book-date">读书时间：2024年08月</p>
+            <a class="book-link" href="https://item.jd.com/10034623741007.html" target="_blank" rel="noopener noreferrer">京东购买链接</a>
+          </div>
+        </li>
+
+        <li class="book-item">
+          <img class="book-cover" src="images/books/book11.png" alt="机器学习实战">
+          <div class="book-details">
+            <p class="book-title"><span class="highlight">《机器学习实战》</span></p>
+            <p class="book-author">作者：奥雷利安·杰龙</p>
+            <p class="book-date">读书时间：2024年09月</p>
+            <a class="book-link" href="https://item.jd.com/10204137401092.html" target="_blank" rel="noopener noreferrer">京东购买链接</a>
+          </div>
+        </li>
+
+        <li class="book-item">
+          <img class="book-cover" src="images/books/book12.png" alt="微观经济学">
+          <div class="book-details">
+            <p class="book-title"><span class="highlight">《微观经济学》</span></p>
+            <p class="book-author">作者：达龙·阿西莫格鲁</p>
+            <p class="book-date">读书时间：2024年10月</p>
+            <a class="book-link" href="https://item.jd.com/10119757899260.html" target="_blank" rel="noopener noreferrer">京东购买链接</a>
+          </div>
+        </li>
+
+      </ol>
+
+      <!-- 返回书目顶部按钮（固定跟随，仅在#books区域可见时显示） -->
+      <div class="back-books-btn">
+        <a href="#books" class="back-books-link">返回<span class="line-break"></span>顶部</a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- ===== 页脚 ===== -->
+  <div class="footer-bar">
+    <div class="footer-inner">
+      <span class="footer-text">Copyright © 胡耀芝 (Yaozhi Hu) · 浙江大学管理学院</span>
+    </div>
+  </div>
+
+  <script src="nav.js"></script>
+</body>
+</html>

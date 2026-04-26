@@ -1,0 +1,1366 @@
+/* =============================================
+   style.css — 胡耀芝个人主页
+   完全仿照 Sherry Tongshuang Wu 样例布局
+   ============================================= */
+
+/* ---------- 字体 ---------- */
+@font-face {
+  font-family: "Crimson Text";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/crimsontext/v19/wlpogwHKFkZgtmSR3NB0oRJfajhRK_Z_3rhH.woff2) format("woff2");
+}
+
+/* ---------- 全局重置 ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  /* 非默认中文字体 Noto Sans SC */
+  font-family: "Noto Sans SC", "Noto Serif SC", "Crimson Text", Georgia, serif;
+  background-color: #f1f3f4;
+  color: #3c4043;
+}
+
+a {
+  color: #666;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover {
+  color: #770e1c;
+  text-decoration: underline;
+}
+
+/* ---------- 顶部导航栏（精确仿照样例） ---------- */
+.header-bar {
+  background-color: #f1f3f4;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  max-width: calc(max(1000px, 51%));
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+/* 左侧品牌名 */
+.header-wordmark {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.wordmark-link {
+  font-family: "Noto Sans SC", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #333;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.wordmark-link:hover {
+  color: #770e1c;
+  text-decoration: none;
+}
+
+/* 右侧链接区 */
+.header-links {
+  display: flex;
+  align-items: center;
+  flex: auto;
+  justify-content: flex-end;
+  position: relative;
+}
+
+/* 导航菜单（桌面端：横排浮右） */
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 0;
+}
+
+.nav-item {
+  display: inline-block;
+  padding: 5px 0 5px 20px;
+  font-size: 1.0rem;
+  color: #555;
+  text-decoration: none;
+  white-space: nowrap;
+  font-family: "Noto Sans SC", sans-serif;
+}
+
+.nav-item:hover {
+  color: #770e1c;
+  text-decoration: underline;
+}
+
+/* 选中状态 */
+.nav-selected {
+  font-weight: 800;
+  color: #000;
+}
+
+.nav-selected:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+/* 管院链接（红色） */
+.nav-lab {
+  color: #770e1c;
+  font-weight: 500;
+}
+
+.nav-lab:hover {
+  color: #770e1c;
+}
+
+/* 汉堡菜单（移动端） */
+.side-menu {
+  display: none;
+}
+
+.hamb {
+  display: none;
+  cursor: pointer;
+  padding: 5px;
+  float: right;
+  z-index: 999;
+}
+
+.hamb-line {
+  background: #333;
+  display: block;
+  height: 2px;
+  position: relative;
+  width: 24px;
+}
+
+.hamb-line::before,
+.hamb-line::after {
+  background: #333;
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+
+.hamb-line::before { top: 5px; }
+.hamb-line::after  { top: -5px; }
+
+/* ---------- 内容限宽容器 ---------- */
+.page-content {
+  max-width: calc(max(1000px, 51%));
+  margin: 10px auto;
+  padding: 0 20px;
+  text-align: left;
+  background-color: #f1f3f4;
+}
+
+/* ---------- About 区域（仿照 .about） ---------- */
+.about-section {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 0;
+}
+
+/* 左：头像 + 姓名 */
+.about-avatar {
+  display: inline-flex;
+  align-items: center;
+  flex: 1;
+  gap: 0;
+}
+
+.avatar-img-wrap {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+
+/* 头像圆形（仿 .about .avatar img） */
+.avatar-img {
+  object-fit: cover;
+  border-radius: 50%;
+  width: min(20vw, 120px);
+  height: min(20vw, 120px);
+  display: block;
+  background-color: #ddd;
+}
+
+.avatar-text {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 姓名（仿 .about .avatar div .name） */
+.avatar-name {
+  display: block;
+  font-size: larger;
+  line-height: 1.6;
+  color: #3c4043;
+}
+
+/* 联系图标行（仿 .about .avatar div .contacts） */
+.avatar-contacts {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.contact-tooltip {
+  position: relative;
+  margin: 2px;
+}
+
+/* Tooltip hover 效果 */
+.contact-tooltip::after {
+  content: attr(data-tip);
+  background-color: #333;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.85em;
+  font-weight: 100;
+  display: none;
+  padding: 5px 10px;
+  position: absolute;
+  text-align: center;
+  z-index: 999;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, calc(-100% - 10px));
+  white-space: nowrap;
+}
+
+.contact-tooltip:hover::after {
+  display: block;
+}
+
+.contact-link {
+  color: #555;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+.contact-link:hover {
+  color: #770e1c;
+  text-decoration: none;
+}
+
+.contact-icon {
+  font-size: 1.3rem;
+}
+
+/* 右：机构信息（仿 .about .info，右对齐） */
+.about-info {
+  text-align: right;
+  font-size: 0.95rem;
+  color: #555;
+  flex-shrink: 0;
+}
+
+.about-info-row {
+  margin: 4px 0;
+  color: #555;
+  line-height: 1.6;
+}
+
+.about-link {
+  color: #770e1c;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.about-link:hover {
+  text-decoration: underline;
+  color: #9b1224;
+}
+
+/* ---------- 白色内容带（仿 .white-background） ---------- */
+.white-band {
+  background-color: #ffffff;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* 简介区（仿 .summary） */
+.summary-section {
+  max-width: calc(max(1000px, 51%));
+  margin: 0 auto;
+  padding: 20px 20px 10px 20px;
+}
+
+.summary-text {
+  line-height: 1.7;
+  color: #3c4043;
+  margin-bottom: 10px;
+}
+
+.summary-strong {
+  color: #770e1c;
+  font-weight: bold;
+}
+
+/* 格言引用块（精确仿照样例 blockquote with ::before ::after 大引号） */
+.summary-quote-wrap {
+  width: 80%;
+  margin: 10px auto 10px auto;
+  position: relative;
+  padding: 0px 20px;
+}
+
+.summary-blockquote {
+  position: relative;
+  padding: 0 60px;
+  margin: 0;
+}
+
+/* 大引号（仿 .summary blockquote :before / :after） */
+.summary-blockquote::before {
+  content: "\201C";
+  position: absolute;
+  color: #e0e0e0;
+  font-size: 8rem;
+  font-family: Georgia, "Crimson Text", serif;
+  line-height: 1;
+  left: -1rem;
+  top: -2rem;
+  width: 4rem;
+  height: 4rem;
+}
+
+.summary-blockquote::after {
+  content: "\201D";
+  position: absolute;
+  color: #e0e0e0;
+  font-size: 8rem;
+  font-family: Georgia, "Crimson Text", serif;
+  line-height: 1;
+  right: -1rem;
+  bottom: 0rem;
+  width: 4rem;
+  height: 4rem;
+}
+
+.blockquote-text {
+  font-style: italic;
+  font-family: "Noto Serif SC", "Crimson Text", serif;
+  color: #3c4043;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin: 0;
+  text-align: center;
+}
+
+.summary-cta {
+  color: #3c4043;
+  margin: 10px 0 5px;
+  font-size: 0.95rem;
+}
+
+/* ---------- 三方框区域（精确仿照 .themes .theme） ---------- */
+.themes-section {
+  max-width: calc(max(1000px + 200px, 55%));
+  margin: 0 auto;
+  padding: 0 20px 20px 20px;
+}
+
+/* 三等分横排 */
+.themes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  overflow: hidden;
+  text-align: left;
+  background-color: transparent;
+}
+
+/* 单个方框卡片 */
+.theme-card {
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  position: relative;
+  cursor: pointer;
+}
+
+/* 内框（仿 .themes .theme .inner） */
+.theme-inner {
+  background-color: white;
+  width: calc(100% - 20px);
+  margin: 5px auto;
+  border-radius: 10px;
+  border: solid 1px #80868b;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 保持宽高比（仿 .themes .theme .inner:before，padding-top:62.5% ≈ 8:5） */
+.theme-inner::before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 62.5%;
+}
+
+/* 项目封面图（仿 .themes .theme .inner .img） */
+.theme-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  background-color: #e8eaed;
+}
+
+/* 文字叠加层（仿 .themes .theme .inner .text） */
+.theme-text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  bottom: 0;
+  width: 100%;
+  line-height: 1.1;
+  align-items: center;
+  background: rgba(218, 220, 224, 0.9);
+  transition: min-height 0.2s ease-out;
+  min-height: 0;
+  padding: 10px 15px;
+}
+
+/* 悬停展开 */
+.theme-inner:hover .theme-text {
+  background: rgba(241, 243, 244, 0.8);
+  min-height: 100%;
+}
+
+.theme-inner:hover .theme-name {
+  padding: 10px 0;
+}
+
+.theme-inner:hover .theme-desc {
+  display: block;
+}
+
+/* 方框标题（仿 .themes .theme .inner .text .name） */
+.theme-name {
+  font-size: 1.1rem;
+  padding: 5px 0;
+  width: 100%;
+  color: black;
+  font-weight: 600;
+  font-family: "Noto Sans SC", sans-serif;
+  text-align: center;
+}
+
+/* 方框描述（仿 .themes .theme .inner .text .desc，默认隐藏悬停显示） */
+.theme-desc {
+  width: 100%;
+  display: none;
+  color: #3c4043;
+  padding: 0 10px;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.theme-label {
+  font-family: Consolas, Menlo, Monaco, monospace;
+  font-style: italic;
+  color: #770e1c;
+  margin-right: 5px;
+  font-weight: normal;
+}
+
+/* 方框内链接 */
+.theme-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.theme-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------- 高亮红色 ---------- */
+.highlight {
+  color: #770e1c;
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* ---------- 页脚（精确仿照样例 footer） ---------- */
+.footer-bar {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.footer-inner {
+  padding: 20px 0;
+  text-align: center;
+  display: table;
+  white-space: nowrap;
+  background: transparent;
+  font-size: 16px;
+  margin: auto;
+  color: #80868b;
+  width: 100%;
+}
+
+/* 页脚两侧分割线（仿 footer div::before / ::after） */
+.footer-inner::before,
+.footer-inner::after {
+  content: "";
+  display: table-cell;
+  position: relative;
+  top: 50%;
+  border-top: 1px solid #bdc1c6;
+  transform: translateY(50%);
+}
+
+.footer-inner::before { width: 5%; }
+.footer-inner::after  { width: 5%; }
+
+.footer-text {
+  padding: 10px;
+  color: #80868b;
+  font-size: 0.95rem;
+}
+
+/* =============================================
+   CV 页面样式
+   ============================================= */
+
+.cv-content {
+  background-color: #ffffff;
+  padding: 20px 20px 40px 20px;
+  min-height: 80vh;
+}
+
+/* CV 顶部：标题 + 下载按钮（flex 横排） */
+.cv-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cv-title {
+  font-family: "Noto Sans SC", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+/* Download PDF 按钮 */
+.cv-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #770e1c;
+  color: #ffffff;
+  font-family: "Noto Sans SC", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.cv-download-btn:hover {
+  background-color: #9b1224;
+  color: #fff;
+  text-decoration: none;
+}
+
+.dl-icon {
+  font-size: 1rem;
+}
+
+/* 教育背景 + 联系方式：左右并排（flex） */
+.cv-top-grid {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.cv-edu {
+  flex: 2;
+  min-width: 280px;
+}
+
+.cv-contact {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* CV 章节标题 h2 */
+.cv-section-title {
+  font-family: "Noto Sans SC", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 6px;
+  margin-top: 28px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.cv-section {
+  margin-top: 10px;
+}
+
+.cv-edu-period {
+  color: #666;
+  line-height: 1.7;
+  margin: 6px 0;
+}
+
+.cv-body-text {
+  color: #666;
+  line-height: 1.7;
+  margin: 5px 0;
+  font-size: 0.95rem;
+}
+
+.cv-label {
+  color: #770e1c;
+  font-weight: 600;
+}
+
+/* 项目经历条目 */
+.cv-project {
+  margin: 14px 0;
+  padding: 12px 16px;
+  border-left: 3px solid #770e1c;
+  background-color: #fdf8f8;
+  border-radius: 0 6px 6px 0;
+}
+
+.cv-project-title {
+  font-size: 1rem;
+  margin: 0 0 6px 0;
+}
+
+/* 列表 */
+.cv-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cv-list-item {
+  color: #666;
+  line-height: 1.7;
+  margin: 8px 0;
+  padding-left: 18px;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.cv-list-item::before {
+  content: "◆";
+  color: #770e1c;
+  font-size: 0.6rem;
+  position: absolute;
+  left: 0;
+  top: 5px;
+}
+
+/* =============================================
+   阅读书目（books-section）
+   ============================================= */
+
+.books-section {
+  padding-bottom: 40px;
+}
+
+/* 有序书单 */
+.book-list {
+  list-style: decimal;
+  margin: 20px 0 20px 30px;
+  padding: 0;
+  color: #666;
+}
+
+/* 单本书：flex 横排 */
+.book-item {
+  margin: 15px 0;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style-position: outside;
+  transition: box-shadow 0.2s;
+}
+
+.book-item:hover {
+  box-shadow: 0 3px 10px rgba(119, 14, 28, 0.08);
+}
+
+.book-cover {
+  width: 90px;
+  height: 120px;
+  object-fit: cover;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  flex-shrink: 0;
+  background-color: #ececec;
+}
+
+.book-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.book-title {
+  font-weight: bold;
+  color: #444;
+  margin: 0 0 4px 0;
+}
+
+.book-author,
+.book-date {
+  margin: 2px 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.book-link {
+  color: #770e1c;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+.book-link:hover {
+  text-decoration: underline;
+  color: #9b1224;
+}
+
+/* 返回书目顶部按钮（固定跟随，右下角） */
+.back-books-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #770e1c;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+  z-index: 1000;
+  transition: transform 0.2s, background-color 0.2s;
+  text-align: center;
+}
+
+.back-books-btn:hover {
+  transform: scale(1.1);
+  background-color: #9b1224;
+}
+
+.back-books-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Noto Sans SC", sans-serif;
+  font-weight: bold;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  padding: 4px;
+  text-align: center;
+  display: block;
+}
+
+.back-books-link:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* =============================================
+   移动端响应式
+   ============================================= */
+@media screen and (max-width: 47.9em) {
+  .header-inner {
+    padding: 8px 15px;
+    flex-wrap: wrap;
+  }
+
+  /* 移动端汉堡菜单显示 */
+  .hamb {
+    display: block;
+  }
+
+  .nav-wrapper {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 48px;
+    left: 0;
+    background-color: #f1f3f4;
+    z-index: 99;
+    box-shadow: 5px 5px 10px rgba(128, 128, 128, 0.3);
+  }
+
+  /* 勾选 checkbox 时展开菜单 */
+  .side-menu:checked ~ .nav-wrapper {
+    display: block;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    margin: 20px 0;
+  }
+
+  .nav-item {
+    display: block;
+    padding: 5px 20px;
+  }
+
+  .nav-item:hover {
+    color: white;
+    background-color: #770e1c;
+    text-decoration: none;
+  }
+
+  /* About 区垂直排列 */
+  .about-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .about-info {
+    text-align: left;
+  }
+
+  .avatar-name {
+    font-size: smaller;
+  }
+
+  /* 三方框在移动端单列 */
+  .theme-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .theme-inner::before {
+    padding-top: 50%;
+  }
+
+  .theme-text {
+    background: rgba(241, 243, 244, 0.8);
+    min-height: 100%;
+  }
+
+  .theme-desc {
+    display: block;
+    font-size: smaller;
+  }
+
+  /* CV 顶部网格 */
+  .cv-top-grid {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* 书目书籍垂直排列 */
+  .book-item {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* 换行占位（替代 <br>） */
+.line-break {
+  display: block;
+  height: 0;
+  line-height: 0;
+}
+
+/* =============================================
+   项目经历区（仿 Research Highlights / .publications）
+   ============================================= */
+.publications-full-bg {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 20px 0;
+}
+/* 整体区域限宽，白色背景继承 */
+.publications-section {
+  max-width: calc(max(1000px, 51%));
+  margin: 0 auto;
+  padding: 0 20px 30px 20px;
+  font-size: 15px;
+}
+
+/* 大标题 h2（仿样例 h2） */
+.pub-section-title {
+  font-family: "Noto Sans SC", sans-serif;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #3c4043;
+  margin-top: 20px;
+  margin-bottom: 6px;
+}
+
+/* 分类组（仿 .topic） */
+.topic-group {
+  margin-bottom: 10px;
+}
+
+/* 分类标题（仿 .publications .header，大写红色加粗） */
+.topic-header {
+  text-transform: uppercase;
+  font-size: smaller;
+  font-weight: bold;
+  color: #770e1c;
+  padding: 10px 0 5px 0;
+  letter-spacing: 0.05em;
+}
+
+/* 单条项目（仿 .publication，flex 横排） */
+.publication-row {
+  display: flex;
+  border-bottom: solid 1px #e0e0e0;
+  padding-bottom: 10px;
+  margin: 20px 0;
+  gap: 0;
+  align-items: flex-start;
+}
+
+/* 左侧缩略图（仿 .thumbnail，约 20% 宽） */
+.pub-thumbnail {
+  flex: 0 0 20%;
+  max-width: 20%;
+  padding: 0 10px;
+}
+
+.pub-thumb-img {
+  border-radius: 10px;
+  border: solid 1px #dadce0;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 120px;
+  background-color: #e8eaed;
+}
+
+/* 右侧信息（仿 .information，约 80% 宽） */
+.pub-information {
+  flex: 0 0 80%;
+  max-width: 80%;
+  padding: 0 10px;
+}
+
+/* 信息区各行间距（仿 .information div） */
+.pub-information div {
+  margin-bottom: 5px;
+}
+
+/* 项目标题（仿 .publication .title） */
+.pub-title {
+  color: black;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* 作者行（仿 .publication .authors） */
+.pub-authors {
+  color: #5f6368;
+  font-size: 0.9rem;
+}
+
+/* 主要作者（本人）加粗（仿 .primary） */
+.pub-author-primary {
+  font-weight: 500;
+  color: #3c4043;
+}
+
+.pub-author {
+  margin-right: 4px;
+}
+
+/* 发表/项目场合（仿 .publication .venue） */
+.pub-venue {
+  color: #5f6368;
+  font-size: 0.9rem;
+}
+
+.pub-venue-name {
+  font-weight: 600;
+  color: #3c4043;
+}
+
+/* 项目描述（额外增加，无对应样例元素） */
+.pub-desc {
+  color: #5f6368;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+/* 技术标签行（仿资源链接行风格） */
+.pub-resources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.pub-tag {
+  background-color: #f1f3f4;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  color: #3c4043;
+  font-size: 0.78rem;
+  padding: 2px 8px;
+  font-family: "Noto Sans SC", sans-serif;
+}
+
+/* =============================================
+   补充：明确所有 flex 容器（回答问题1）
+   ============================================= */
+
+/* 导航栏内层 — 已有 flex，明确写出 */
+.header-inner       { display: flex; align-items: center; }
+.header-links       { display: flex; align-items: center; }
+.nav-menu           { display: flex; }
+
+/* About 区 — 横排仿样例 */
+.about-section      { display: flex; align-items: center; }
+.about-avatar       { display: flex; align-items: center; flex: 1; }
+.avatar-contacts    { display: flex; gap: 4px; }
+
+/* 三方框区 */
+.themes-grid        { display: flex; flex-wrap: wrap; }
+
+/* CV 页 */
+.cv-header-row      { display: flex; align-items: center; justify-content: space-between; }
+.cv-top-grid        { display: flex; gap: 40px; align-items: flex-start; }
+
+/* 书目条目 */
+.book-item          { display: flex; align-items: center; }
+.book-details       { display: flex; flex-direction: column; }
+
+/* 项目条目 */
+.publication-row    { display: flex; align-items: flex-start; }
+.pub-resources      { display: flex; flex-wrap: wrap; }
+
+/* 页脚 */
+.footer-inner       { display: table; } /* 保持样例的 table 模拟两侧线效果 */
+
+
+/* =============================================
+   小游戏区域 — 俄罗斯方块
+   ============================================= */
+
+/* 全宽浅灰背景带 */
+.game-band {
+  background-color: #f5f5f5;
+  width: 100%;
+  padding: 10px 0 30px;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* 限宽内容区 — 三栏布局需要更宽 */
+.game-section {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 标题 */
+.game-title {
+  font-family: "Noto Sans SC", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #3c4043;
+  margin: 16px 0 14px;
+  text-align: center;
+}
+
+/* 副标题 / 快捷键提示（移到画布下方） */
+.game-subtitle {
+  font-size: 0.78rem;
+  color: #80868b;
+  margin: 14px 0 0;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* 主布局：三栏（左面板 + 画布 + 右面板），flex 横排 */
+.game-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+/* 画布容器（中间） */
+.game-canvas-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+/* 触摸覆盖层（用于手机手势区域划分） */
+.game-touch-overlay {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* 游戏主画布 */
+.game-canvas {
+  display: block;
+  background-color: #1a1a2e;
+  border: 3px solid #770e1c;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(119, 14, 28, 0.2);
+}
+
+/* 左右侧面板：flex 纵列 */
+.game-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 160px;
+  flex-shrink: 0;
+}
+
+.game-panel-left {
+  order: -1;
+}
+
+.game-panel-right {
+  order: 1;
+}
+
+/* 面板信息盒子 */
+.game-panel-box {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.game-panel-label {
+  font-size: 0.7rem;
+  color: #80868b;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.game-panel-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #770e1c;
+  font-family: "Noto Sans SC", monospace;
+  line-height: 1.1;
+}
+
+/* 分数信息网格（2x2） */
+.game-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.game-stats-grid .game-panel-box {
+  padding: 8px 10px;
+}
+
+.game-stats-grid .game-panel-value {
+  font-size: 1.3rem;
+}
+
+/* 预览画布（下一个 / 储存） */
+.game-preview-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+
+.game-next-canvas,
+.game-hold-canvas {
+  display: block;
+  background-color: #1a1a2e;
+  border-radius: 4px;
+  margin-top: 6px;
+  border: 1px solid #dadce0;
+}
+
+/* 按钮组 */
+.game-btn-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* 游戏按钮（用 <a> 标签仿按钮，遵守只用允许标签规则） */
+.game-btn {
+  display: block;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-family: "Noto Sans SC", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.15s, transform 0.1s;
+  cursor: pointer;
+}
+
+.game-btn:hover {
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.game-btn-start {
+  background-color: #770e1c;
+  color: #ffffff;
+}
+
+.game-btn-start:hover {
+  background-color: #9b1224;
+  color: #ffffff;
+}
+
+.game-btn-pause {
+  background-color: #e8eaed;
+  color: #3c4043;
+}
+
+.game-btn-pause:hover {
+  background-color: #dadce0;
+  color: #3c4043;
+}
+
+.game-btn-restart {
+  background-color: #e8eaed;
+  color: #3c4043;
+}
+
+.game-btn-restart:hover {
+  background-color: #dadce0;
+  color: #3c4043;
+}
+
+/* 操作说明 */
+.game-help {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.game-help-title {
+  font-size: 0.72rem;
+  color: #80868b;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.game-help-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: #5f6368;
+  margin-bottom: 4px;
+}
+
+.game-key {
+  background-color: #f1f3f4;
+  border: 1px solid #dadce0;
+  border-radius: 3px;
+  padding: 1px 5px;
+  font-size: 0.75rem;
+  color: #3c4043;
+  white-space: nowrap;
+  font-family: monospace;
+}
+
+/* 移动端游戏布局调整 */
+@media screen and (max-width: 600px) {
+  .game-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .game-panel {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-width: unset;
+    width: 100%;
+  }
+
+  .game-panel-box {
+    flex: 0 0 calc(50% - 10px);
+  }
+
+  .game-btn-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .game-btn {
+    flex: 0 0 calc(33% - 8px);
+  }
+}

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>胡耀芝 — 个人主页</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== 顶部导航栏 ===== -->
+  <div id="header" class="header-bar">
+    <div class="header-inner">
+      <div class="header-wordmark">
+        <a href="index.html" class="wordmark-link">Yaozhi Hu @ ZJU</a>
+      </div>
+      <div class="header-links">
+        <input class="side-menu" type="checkbox" id="side-menu">
+        <div class="hamb" id="hamb-toggle">
+          <span class="hamb-line"></span>
+        </div>
+        <div class="nav-wrapper">
+          <div class="nav-menu">
+            <a href="index.html" class="nav-item nav-selected">About</a>
+            <a href="http://www.som.zju.edu.cn/" class="nav-item nav-lab">SOM, ZJU</a>
+            <a href="cv.html" class="nav-item">CV</a>
+            <a href="cv.html#practice" class="nav-item">实践活动</a>
+            <a href="cv.html#skills" class="nav-item">技能掌握</a>
+            <a href="cv.html#books" class="nav-item">阅读书目</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== About 区域（照片 + 姓名 + 联系 + 信息，flex 横排仿样例） ===== -->
+  <div class="page-content">
+    <div class="about-section">
+
+      <!-- 左：头像 + 姓名 + 图标（flex 纵列） -->
+      <div class="about-avatar">
+        <div class="avatar-img-wrap">
+          <!-- 请将生活照放在 images/profile/life_photo.png -->
+          <img class="avatar-img" src="images/profile/life_photo.png" alt="胡耀芝生活照">
+        </div>
+        <div class="avatar-text">
+          <span class="avatar-name">
+            <span class="highlight">您好</span>！<span class="line-break"></span>
+            我是<span class="highlight">胡耀芝</span><span class="line-break"></span>
+            (Yaozhi Hu)
+          </span>
+          <div class="avatar-contacts">
+            <span class="contact-tooltip" data-tip="邮箱">
+              <a href="mailto:3230105450@zju.edu.cn" class="contact-link">
+                <span class="contact-icon">✉</span>
+              </a>
+            </span>
+            <span class="contact-tooltip" data-tip="电话">
+              <a href="tel:19857197275" class="contact-link">
+                <span class="contact-icon">☎</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右：院系信息（右对齐，仿样例 .about .info） -->
+      <div class="about-info">
+        <p class="about-info-row">信息管理与信息系统专业 2023级本科生</p>
+        <p class="about-info-row">
+          <a href="https://www.zju.edu.cn/" class="about-link" target="_blank" rel="noopener noreferrer">浙江大学</a>
+          管理学院（<a href="http://www.som.zju.edu.cn/" class="about-link" target="_blank" rel="noopener noreferrer">ZJU SOM</a>）
+        </p>
+        <p class="about-info-row">目标：数据分析 / 商业分析实习生</p>
+        <p class="about-info-row">邮箱：3230105450@zju.edu.cn</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== 白色区域：简介 + 格言 + 三方框 + 项目经历 ===== -->
+  <div class="white-band">
+
+    <!-- 简介 + 格言 -->
+    <div class="summary-section">
+      <div class="summary-text">
+        我是浙江大学管理学院<span class="summary-strong">信息管理与信息系统</span>专业在读学生。熟练掌握SQL、Python、C、数据分析、可视化及机器学习技术，具备实际项目与科研经验。
+      </div>
+      <div class="summary-quote-wrap">
+        <div class="summary-blockquote">
+          <p class="blockquote-text">数据驱动决策，创新引领未来。</p>
+        </div>
+      </div>
+      <div class="summary-cta">
+        点击下方三个方框，跳转至对应项目经历详情：
+      </div>
+    </div>
+
+    <!-- 三个项目方框（flex 三等分，仿样例 .themes） -->
+    <div class="themes-section">
+      <div class="themes-grid">
+
+        <!-- 方框1：健身房数据库 -->
+        <div class="theme-card" id="theme-1">
+          <div class="theme-inner">
+            <a href="#proj-1" class="theme-link">
+              <!-- 请将项目封面放在 images/projects/proj1.png -->
+              <img class="theme-img" src="images/projects/proj1.png" alt="健身房数据库项目">
+              <div class="theme-text">
+                <div class="theme-name">健身房数据库构建</div>
+                <div class="theme-desc">
+                  <span class="theme-label">技术栈</span>SQL Server / ER图 / 数据字典
+                </div>
+                <div class="theme-desc">
+                  <span class="theme-label">内容</span>需求分析、概念设计到系统实现全流程
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- 方框2：泰坦尼克号预测 -->
+        <div class="theme-card" id="theme-2">
+          <div class="theme-inner">
+            <a href="#proj-2" class="theme-link">
+              <!-- 请将项目封面放在 images/projects/proj2.png -->
+              <img class="theme-img" src="images/projects/proj2.png" alt="泰坦尼克号生存预测">
+              <div class="theme-text">
+                <div class="theme-name">泰坦尼克号生存预测</div>
+                <div class="theme-desc">
+                  <span class="theme-label">技术栈</span>Python / KNN / 逻辑回归 / ROC曲线
+                </div>
+                <div class="theme-desc">
+                  <span class="theme-label">内容</span>数据清洗、模型构建到性能评估全流程
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- 方框3：商标目标检测 -->
+        <div class="theme-card" id="theme-3">
+          <div class="theme-inner">
+            <a href="#proj-3" class="theme-link">
+              <!-- 请将项目封面放在 images/projects/proj3.png -->
+              <img class="theme-img" src="images/projects/proj3.png" alt="商标目标检测">
+              <div class="theme-text">
+                <div class="theme-name">商标目标检测</div>
+                <div class="theme-desc">
+                  <span class="theme-label">技术栈</span>YOLO / 通义千问大模型 / mAP评估
+                </div>
+                <div class="theme-desc">
+                  <span class="theme-label">内容</span>多模型对比、大模型调用与效果分析
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+      <!-- ===== 项目经历（仿 Research Highlights 格式） ===== -->
+    <div class="publications-full-bg">
+      <div class="publications-section">
+        <h2 class="pub-section-title">项目经历</h2>
+
+        <!-- 项目分类1 -->
+        <div class="topic-group" id="proj-1">
+          <div class="topic-header">数据库系统设计</div>
+
+          <!-- 项目条目（仿 .publication，flex 横排：缩略图 + 信息） -->
+          <div class="publication-row">
+            <div class="pub-thumbnail">
+              <!-- 请将缩略图放在 images/projects/proj1_thumb.png -->
+              <img class="pub-thumb-img" src="images/projects/proj1_thumb.png" alt="健身房数据库">
+            </div>
+            <div class="pub-information">
+              <div class="pub-title">健身房信息管理数据库系统设计与实现</div>
+              <div class="pub-authors">
+                <span class="pub-author pub-author-primary">胡耀芝</span>
+                <span class="pub-author">（团队合作项目）</span>
+              </div>
+              <div class="pub-venue">
+                <span class="pub-venue-name">浙江大学数据库技术课程项目</span>，2024年春
+              </div>
+              <div class="pub-desc">
+                项目任务拆分为需求分析、概念设计、逻辑结构设计和数据库系统实现。以真实健身房运作为参考，以 SQL Server 为平台，流程图、ER图、数据字典为工具。负责 ER 图设计、数据字典构建及部分代码编写，构建了体现会员、课程、教练、器材与工作人员关系并实现信息操作的完整数据库。
+              </div>
+              <div class="pub-resources">
+                <span class="pub-tag">SQL Server</span>
+                <span class="pub-tag">ER图</span>
+                <span class="pub-tag">数据字典</span>
+                <span class="pub-tag">关系模式设计</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 项目分类2 -->
+        <div class="topic-group" id="proj-2">
+          <div class="topic-header">机器学习与数据分析</div>
+
+          <!-- 项目条目2 -->
+          <div class="publication-row">
+            <div class="pub-thumbnail">
+              <img class="pub-thumb-img" src="images/projects/proj2_thumb.png" alt="泰坦尼克号生存预测">
+            </div>
+            <div class="pub-information">
+              <div class="pub-title">泰坦尼克号乘客生存预测：从数据处理到模型优化全流程</div>
+              <div class="pub-authors">
+                <span class="pub-author pub-author-primary">胡耀芝</span>
+                <span class="pub-author">（独立完成）</span>
+              </div>
+              <div class="pub-venue">
+                <span class="pub-venue-name">浙江大学商务数据挖掘课程项目</span>，2024年春
+              </div>
+              <div class="pub-desc">
+                独立编写函数读取、清洗数据并整理为 Passenger 类列表；实现 KNN 和逻辑回归模型及相关验证函数，计算多指标评估性能；编写函数绘制 ROC 曲线辅助超参数调优。成功提升预测准确性，积累了从数据处理到模型优化全流程的独立项目经验。
+              </div>
+              <div class="pub-resources">
+                <span class="pub-tag">Python</span>
+                <span class="pub-tag">KNN</span>
+                <span class="pub-tag">逻辑回归</span>
+                <span class="pub-tag">ROC曲线</span>
+                <span class="pub-tag">交叉验证</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 项目条目3（同属机器学习分类） -->
+          <div class="publication-row" id="proj-3">
+            <div class="pub-thumbnail">
+              <img class="pub-thumb-img" src="images/projects/proj3_thumb.png" alt="商标目标检测">
+            </div>
+            <div class="pub-information">
+              <div class="pub-title">商标目标检测：多方法对比与大模型评估分析</div>
+              <div class="pub-authors">
+                <span class="pub-author pub-author-primary">胡耀芝</span>
+                <span class="pub-author">（SRTP国创科研项目子课题）</span>
+              </div>
+              <div class="pub-venue">
+                <span class="pub-venue-name">浙江大学SRTP国家级大学生创新创业训练计划</span>，2024年
+              </div>
+              <div class="pub-desc">
+                为寻找最优检测方法，使用 YOLO 不同模型对比效果，并调用通义千问大模型批量检测。观察到大模型分类效果较好，但检测结果低于传统模型；抽样分析发现大模型输出与人工标注习惯存在偏差，导致 mAP 值偏低。完成了对多种检测方案的系统性对比评估。
+              </div>
+              <div class="pub-resources">
+                <span class="pub-tag">YOLO</span>
+                <span class="pub-tag">通义千问</span>
+                <span class="pub-tag">目标检测</span>
+                <span class="pub-tag">mAP评估</span>
+                <span class="pub-tag">大模型API</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== 小游戏区域：俄罗斯方块 ===== -->
+  <div class="game-band" id="game">
+    <div class="game-section">
+
+      <h2 class="game-title">🎮 小游戏 · 俄罗斯方块</h2>
+
+      <div class="game-layout">
+
+        <!-- 左侧面板：储存 + 操作说明 -->
+        <div class="game-panel game-panel-left">
+          <div class="game-panel-box game-preview-box">
+            <div class="game-panel-label">储存 (C)</div>
+            <canvas id="holdCanvas" class="game-hold-canvas"></canvas>
+          </div>
+
+          <div class="game-help">
+            <div class="game-help-title">操作说明</div>
+            <div class="game-help-row"><span class="game-key">← →</span> 左右移动</div>
+            <div class="game-help-row"><span class="game-key">↑</span> 旋转</div>
+            <div class="game-help-row"><span class="game-key">↓</span> 加速下落</div>
+            <div class="game-help-row"><span class="game-key">空格</span> 直接落底</div>
+            <div class="game-help-row"><span class="game-key">Z / X</span> 左/右旋转</div>
+            <div class="game-help-row"><span class="game-key">C</span> 储存方块</div>
+            <div class="game-help-row"><span class="game-key">P / Esc</span> 暂停</div>
+          </div>
+        </div>
+
+        <!-- 中间：主画布 -->
+        <div class="game-canvas-wrap">
+          <div class="game-touch-overlay" id="touchOverlay">
+            <canvas id="gameCanvas" class="game-canvas"></canvas>
+          </div>
+        </div>
+
+        <!-- 右侧面板：分数 + 下一个 + 按钮 -->
+        <div class="game-panel game-panel-right">
+
+          <!-- 分数信息网格 -->
+          <div class="game-stats-grid">
+            <div class="game-panel-box">
+              <div class="game-panel-label">得分</div>
+              <div class="game-panel-value" id="scoreDisplay">0</div>
+            </div>
+            <div class="game-panel-box">
+              <div class="game-panel-label">最高分</div>
+              <div class="game-panel-value" id="highScoreDisplay">0</div>
+            </div>
+            <div class="game-panel-box">
+              <div class="game-panel-label">等级</div>
+              <div class="game-panel-value" id="levelDisplay">1</div>
+            </div>
+            <div class="game-panel-box">
+              <div class="game-panel-label">消行</div>
+              <div class="game-panel-value" id="linesDisplay">0</div>
+            </div>
+          </div>
+
+          <!-- 下一个方块 -->
+          <div class="game-panel-box game-preview-box">
+            <div class="game-panel-label">下一个</div>
+            <canvas id="nextCanvas" class="game-next-canvas"></canvas>
+          </div>
+
+          <!-- 按钮组 -->
+          <div class="game-btn-group">
+            <a href="#" class="game-btn game-btn-start" id="btnStart">开始游戏</a>
+            <a href="#" class="game-btn game-btn-pause" id="btnPause">暂停</a>
+            <a href="#" class="game-btn game-btn-restart" id="btnRestart">重新开始</a>
+          </div>
+
+        </div>
+      </div>
+
+      <p class="game-subtitle">键盘：← → 移动 · ↑ 旋转 · ↓ 加速 · 空格 直落 · P 暂停 &nbsp;|&nbsp; 触屏：滑动移动，点击上半部旋转，双击直落</p>
+
+    </div>
+  </div>
+
+  <!-- ===== 页脚（仿样例，带两侧分割线） ===== -->
+  <div class="footer-bar">
+    <div class="footer-inner">
+      <span class="footer-text">Copyright © 胡耀芝 (Yaozhi Hu) · 浙江大学管理学院</span>
+    </div>
+  </div>
+
+  <script src="nav.js"></script>
+  <script src="tetris.js"></script>
+</body>
+</html>
